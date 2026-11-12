@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Brand / Purple Colors */
+  --color-brand-primary: #635fc7;
+  --color-brand-light: #a8a4ff;
+
+  /* Dark / Background Colors */
+  --color-dark-900: #000112;
+  --color-dark-800: #20212c;
+  --color-dark-700: #2b2c37;
+  --color-dark-600: #3e3f4e;
+
+  /* Neutral / Slate / Light Colors */
+  --color-neutral-grey: #828fa3;
+  --color-neutral-light-blue: #e4ebfa;
+  --color-neutral-off-white: #f4f7fd;
+  --color-neutral-white: #ffffff;
+
+  /* Accent / Destructive / Coral Colors */
+  --color-accent-red: #ea5555;
+  --color-accent-light-red: #ff9898;
+
+  /* Font */
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.loader {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loader span {
+  width: 20%;
+  height: 100%;
+  border-radius: 999px;
+  background: #635FC7;
+}
+
+.loader span:nth-child(1) {
+  opacity: 1;
+  animation: l1a 1s infinite linear;
+}
+
+.loader span:nth-child(2) {
+  opacity: 0.75;
+  animation: l1b 1s infinite linear;
+}
+
+.loader span:nth-child(3) {
+  opacity: 0.5;
+  animation: l1c 1s infinite linear;
+}
+
+@keyframes l1a {
+  0%, 66%, 100% { transform: scaleY(1); }
+  33%           { transform: scaleY(0.1); }
+}
+@keyframes l1b {
+  0%, 33%, 66%, 100% { transform: scaleY(1); }
+  50%                { transform: scaleY(0.1); }
+}
+@keyframes l1c {
+  0%, 33%, 50%, 100% { transform: scaleY(1); }
+  66%                { transform: scaleY(1); }
+  76%                { transform: scaleY(0.1); }
+}
