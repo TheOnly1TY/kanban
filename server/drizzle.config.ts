@@ -1,6 +1,10 @@
 /// <reference types="node" />
 
 import { defineConfig } from "drizzle-kit";
+import dotenv from 'dotenv';
+
+dotenv.config({path: "./config.env"});
+
 
 export default defineConfig({
     dialect: "postgresql",

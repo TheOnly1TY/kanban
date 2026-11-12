@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch --env-file=.config.env src/server.ts",
+    "dev": "tsx watch --env-file=config.env src/server.ts",
     "db:generate": "npx drizzle-kit generate",
     "db:migrate": "tsx src/drizzle/migrate.ts"
   },
