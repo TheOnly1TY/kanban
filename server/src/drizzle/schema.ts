@@ -1,8 +1,20 @@
-import { boolean, pgTable, text, uuid, varchar} from "drizzle-orm/pg-core"
+import { boolean, pgTable, text, uuid, varchar, timestamp} from "drizzle-orm/pg-core"
+
+// --------------- USERS SCHEMA ------------------
+export const UsersTable = pgTable("users", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: varchar("name", { length: 255 }).notNull(),
+    email: varchar("email", { length:  255 }).notNull().unique(),
+    password: varchar("password", {length: 255}).notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+})
+
+// --------------- BOARDS SCHEMA ------------------
 
 export const BoardTable = pgTable("boards", {
     id: uuid("id").primaryKey().defaultRandom(),
     name: varchar("name", {  length: 255}).notNull(),
+    userId: uuid("user_id").references(() => UsersTable.id, { onDelete: "cascade" })
 })
 
 export const ColumnTable = pgTable("columns", {
